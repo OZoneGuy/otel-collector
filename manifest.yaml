@@ -1,0 +1,19 @@
+dist:
+    description: Custom OpenTelemetry Collector
+    name: otel-collector
+    output_path: ./build
+exporters:
+    - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.152.0
+    - gomod: go.opentelemetry.io/collector/exporter/otlphttpexporter v0.152.0
+receivers:
+    - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/fluentforwardreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/httpcheckreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8sclusterreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8seventsreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8sobjectsreceiver v0.152.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kubeletstatsreceiver v0.152.0
