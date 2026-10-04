@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Golang
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Build artifact
+        run: go tool builder --config manifest.yaml
+      - name: Upload otel-collector artifact
+        uses: softprops/action-gh-release@v3
+        with:
+          working_directory: build
+          files: otel-collector
