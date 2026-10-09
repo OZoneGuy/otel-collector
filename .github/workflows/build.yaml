@@ -19,8 +19,7 @@ jobs:
         uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
-      - name: Download golang packages
-        run: go mod download
+          cache: true
       - name: Build artifact
         run: go tool build --config manifest.yaml
       - name: Upload otel-collector artifact
